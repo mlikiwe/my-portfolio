@@ -8,16 +8,16 @@ function formatDateRange(startDateStr?: string, endDateStr?: string): string {
   return `${start} - ${end}`;
 }
 
-export async function ExperienceList() {
+export async function ExperienceCard() {
   const experiences = await fetchExperiences();
   return (
     <div className="flex flex-col">
       {experiences.map((experience) => (
-          <div key={experience.id} className="py-3 bg-white rounded-xl text-black">
-            <div className="text-bold">{experience.role}</div>
-            <div className="text-[15px] text-neutral-700">{experience.company}</div>
-            <div className="text-sm text-black/60">{formatDateRange(experience.start_date, experience.end_date ?? "Present")}</div>
-          </div>
+        <div key={experience.id} className="py-3 bg-white rounded-xl text-black">
+          <div className="text-bold">{experience.role}</div>
+          <div className="text-[15px] text-neutral-700">{experience.company}</div>
+          <div className="text-sm text-black/60">{formatDateRange(experience.start_date, experience.end_date ?? "Present")}</div>
+        </div>
       ))}
     </div>
   );

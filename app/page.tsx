@@ -1,8 +1,9 @@
 import { Suspense } from "react";
 import { fetchProjects } from "@/lib/notion";
+import { fetchExperiences } from "@/lib/notion";
 import { Metadata } from "next";
 import { ProfileSection, ProfileSectionSkeleton } from "@/components/ProfileSection";
-import { ExperienceList, ExperienceListSkeleton } from "@/components/ExperienceList";
+import { ExperienceCard, ExperienceListSkeleton } from "@/components/ExperienceCard";
 import { ProjectCard, ProjectCardSkeleton } from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
@@ -20,6 +21,18 @@ async function ProjectGrid() {
     </div>
   );
 }
+
+async function ExperienceList() {
+  const experiences = await fetchExperiences();
+  return (
+    <div className="flex flex-col">
+      {experiences.map((experience) => (
+        <ExperienceCard key={experience.id} {...experience} />
+      ))}
+    </div>
+  );
+}
+
 
 export default function Home() {
   return (
