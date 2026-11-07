@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "./typeset.css";
+@plugin "daisyui";
+
+.typeset-docs hr {
+  margin-block-start: var(--typeset-flow);
+}
+
+.typeset-docs hr+h1,
+.typeset-docs hr+h2,
+.typeset-docs hr+h3,
+.typeset-docs hr+h4 {
+  margin-block-start: calc(var(--typeset-flow) * 0.5);
+}
+
+.typeset-docs {
+  --typeset-font-body: var(--font-roboto);
+  --typeset-font-heading: var(--font-merriweather);
+  --typeset-font-mono: var(--font-geist-mono);
+  --typeset-size: 15px;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1.25em;
+
+  @media (max-width: 627px) {
+    --typeset-size: 14px;
+
+  }
+}
+
+.typeset-docs img {
+  max-width: 580px;
+  display: block;
+  margin-inline: auto;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: Consolas, Monaco, monospace;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}

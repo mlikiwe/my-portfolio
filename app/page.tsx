@@ -1,0 +1,62 @@
+import { Suspense } from "react";
+import { fetchProjects } from "@/lib/notion";
+import { Metadata } from "next";
+import { ProfileSection } from "@/components/ProfileSection";
+import { ExperienceList } from "@/components/ExperienceList";
+import { ProjectCard } from "@/components/ProjectCard";
+
+export const metadata: Metadata = {
+  title: "Ivan's Project",
+  description: "Showcase of ivan's project",
+};
+
+async function ProjectGrid() {
+  const projects = await fetchProjects();
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {projects.map((project) => (
+        <ProjectCard key={project.id} {...project} />
+      ))}
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="min-h-screen w-full bg-white relative">
+      <div className="fixed inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #f5f2ef 1px, transparent 1px),
+            linear-gradient(to bottom, #f5f2ef 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+          WebkitMaskImage: "linear-gradient(to right, #000 0%, #000 30%, transparent 45%, transparent 100%)",
+          maskImage: "linear-gradient(to right, #000 0%, #000 30%, transparent 45%, transparent 100%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-16 top-8 px-4 items-start">
+        <Suspense fallback={<div>Loading Profile...</div>}>
+          <ProfileSection />
+        </Suspense>
+
+        <section className="lg:col-span-3 md:col-span-2 flex flex-col gap-4">
+          <div className="flex flex-col">
+            <h2 className="font-mono font-bold text-xl">Working Experiences</h2>
+            <Suspense fallback={<div>Loading Experiences...</div>}>
+              <ExperienceList />
+            </Suspense>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h2 className="font-mono font-bold text-xl">Projects</h2>
+            <Suspense fallback={<div>Loading Projects...</div>}>
+              <ProjectGrid />
+            </Suspense>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
