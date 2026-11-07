@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeHighlight from "rehype-highlight"
 import "highlight.js/styles/github.css"
+import rehypeRaw from "rehype-raw"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -11,7 +12,7 @@ export async function BlogContent({ params }: Props) {
   const content = await fetchProjectContent(slug)
 
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
       {content}
     </ReactMarkdown>
   )

@@ -42,7 +42,17 @@ export const notionClient = new Client({ auth: notionSecret })
 export const n2m = new NotionToMarkdown({ notionClient })
 
 n2m.setCustomTransformer("image", async (block: any) => {
-  return `![](/api/notion-image?type=block&id=${block.id})`
+  const caption = (block.image?.caption ?? [])
+    .map((t: any) => t.plain_text)
+    .join("")
+
+  const img = `<img src="/api/notion-image?type=block&id=${block.id}" alt="${caption}" />`
+
+  if (caption) {
+    return `<figure>${img}<figcaption>${caption}</figcaption></figure>`
+  }
+
+  return `<figure>${img}</figure>`
 })
 
 type QueryDataSourceParams = Parameters<typeof notionClient.dataSources.query>[0]
