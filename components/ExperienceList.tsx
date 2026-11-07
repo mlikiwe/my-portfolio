@@ -22,3 +22,17 @@ export async function ExperienceList() {
     </div>
   );
 }
+
+export function ExperienceListSkeleton({ experience_length }: { experience_length: number }) {
+  return (
+    <div className="flex flex-col">
+      {Array.from({ length: experience_length }).map((_, i) => (
+        <div key={i} className="py-3 flex flex-col gap-1.5">
+          <div className="skeleton h-4 w-60 rounded" />
+          <div className="skeleton h-4 w-full rounded" />
+          <div className="skeleton h-3.5 w-full rounded" />
+        </div>
+      ))}
+    </div>
+  )
+}

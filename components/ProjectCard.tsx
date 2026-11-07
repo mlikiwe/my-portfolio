@@ -30,3 +30,27 @@ export function ProjectCard(project: { id: string, title: string, description: s
     </div>
   )
 }
+
+export function ProjectCardSkeleton({ project_length }: { project_length: number }) {
+  return (
+    <div className="grid grid-cols-2 gap-4">
+      {Array.from({ length: project_length }).map((_, i) => (
+        <div key={i} className="card bg-white shadow-sm shadow-[#f1e5da]">
+          <figure className="h-48 overflow-hidden">
+            <div className="skeleton w-full h-full" />
+          </figure>
+          <div className="card-body">
+            <div className="skeleton h-6 w-3/4 rounded" />
+            <div className="skeleton h-4 w-full rounded" />
+            <div className="skeleton h-4 w-5/6 rounded" />
+            <div className="card-actions justify-start">
+              <div className="skeleton h-6 w-16 rounded-full" />
+              <div className="skeleton h-6 w-20 rounded-full" />
+            </div>
+            <div className="skeleton btn w-full" />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

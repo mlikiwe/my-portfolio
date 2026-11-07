@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { fetchProjects } from "@/lib/notion";
 import { Metadata } from "next";
-import { ProfileSection } from "@/components/ProfileSection";
-import { ExperienceList } from "@/components/ExperienceList";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProfileSection, ProfileSectionSkeleton } from "@/components/ProfileSection";
+import { ExperienceList, ExperienceListSkeleton } from "@/components/ExperienceList";
+import { ProjectCard, ProjectCardSkeleton } from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
   title: "Ivan's Project",
@@ -37,21 +37,21 @@ export default function Home() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-16 top-8 px-4 items-start">
-        <Suspense fallback={<div>Loading Profile...</div>}>
+        <Suspense fallback={<ProfileSectionSkeleton />}>
           <ProfileSection />
         </Suspense>
 
         <section className="lg:col-span-3 md:col-span-2 flex flex-col gap-4">
           <div className="flex flex-col">
             <h2 className="font-mono font-bold text-xl">Working Experiences</h2>
-            <Suspense fallback={<div>Loading Experiences...</div>}>
+            <Suspense fallback={<ExperienceListSkeleton experience_length={2} />}>
               <ExperienceList />
             </Suspense>
           </div>
 
           <div className="flex flex-col gap-4">
             <h2 className="font-mono font-bold text-xl">Projects</h2>
-            <Suspense fallback={<div>Loading Projects...</div>}>
+            <Suspense fallback={<ProjectCardSkeleton project_length={2} />}>
               <ProjectGrid />
             </Suspense>
           </div>

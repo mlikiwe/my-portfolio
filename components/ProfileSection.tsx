@@ -57,3 +57,38 @@ export async function ProfileSection() {
         </section>
     );
 }
+
+export function ProfileSectionSkeleton() {
+    return (
+        <section className="lg:col-span-2 md:col-span-1 lg:sticky top-8 h-fit flex flex-col gap-4">
+            <div className="skeleton h-4 w-20"></div>
+            <div className="skeleton shrink-0 w-28 h-28 rounded-full"></div>
+
+            <div className="text-left">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full mt-1"></div>
+                <div className="skeleton h-4 w-full"></div>
+            </div>
+
+            <div className="text-left">
+                <div className="skeleton h-4 w-16 mb-1"></div>
+                <div className="skeleton h-30 w-full"></div>
+            </div>
+
+            <div className="text-left">
+                <div className="skeleton h-4 w-16 mb-1"></div>
+                <div className="flex flex-wrap justify-start gap-2 mt-2">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <span key={index} className="skeleton h-6 w-20">
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex flex-row gap-4 mt-3">
+                <div className="skeleton h-11 w-11 rounded-full"></div>
+                <div className="skeleton h-11 w-11 rounded-full"></div>
+            </div>
+        </section>
+    );
+}
