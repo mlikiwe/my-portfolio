@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import { BlogHeader } from "@/components/BlogHeader"
 import { BlogLinks } from "@/components/BlogLinks"
 import { BlogContent } from "@/components/BlogContent"
-
+import { ToTopButton } from "@/components/ToTopButton"
 import Link from "next/link"
 import { BackIcon } from "@/components/icons/BackIcon"
 
@@ -27,7 +27,7 @@ export default function DetailProject({ params }: Props) {
           href="/"
           className="inline-flex py-2.5 px-4 mb-3 items-center gap-1.5 rounded-3xl text-sm border bg-[#688E8F] text-white border-none hover:bg-[#023E3B]"
         >
-            <BackIcon className="w-5 h-5"/> Back to Home
+          <BackIcon className="w-5 h-5" /> Back to Home
         </Link>
 
         <div className="bg-white p-12">
@@ -44,6 +44,8 @@ export default function DetailProject({ params }: Props) {
           <Suspense fallback={<ProjectLinksSkeleton />}>
             <BlogLinks params={params} />
           </Suspense>
+
+          <ToTopButton />
         </div>
       </div>
     </div>
