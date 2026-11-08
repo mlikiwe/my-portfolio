@@ -38,7 +38,7 @@ export async function ProfileSection() {
                 <h1 className="font-mono mb-1">Skill</h1>
                 <div className="flex flex-wrap justify-start gap-2 mt-2">
                     {profile.skills.map((skill, index) => (
-                        <span key={index} className="badge badge-secondary">
+                        <span key={index} className="badge badge-accent">
                             {skill}
                         </span>
                     ))}
@@ -46,10 +46,10 @@ export async function ProfileSection() {
             </div>
 
             <div className="flex flex-row gap-4 mt-3">
-                <a target="_blank" href="https://github.com/mlikiwe" className="text-primary hover:text-secondary transition-colors tooltip tooltip-bottom" data-tip="Github">
+                <a target="_blank" href="https://github.com/mlikiwe" className="text-secondary tooltip tooltip-bottom" data-tip="Github">
                     <GithubIcon className="w-9 h-9" />
                 </a>
-                <a target="_blank" href="https://www.linkedin.com/in/ivanadinata/" className="text-primary hover:text-secondary transition-colors tooltip tooltip-bottom" data-tip="Linkedin">
+                <a target="_blank" href="https://www.linkedin.com/in/ivanadinata/" className="text-secondary tooltip tooltip-bottom" data-tip="Linkedin">
                     <LinkedinIcon className="w-9 h-9" />
                 </a>
             </div>

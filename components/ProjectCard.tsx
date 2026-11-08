@@ -20,12 +20,12 @@ export function ProjectCard(project: { id: string, title: string, description: s
         <p>{project.description}</p>
         <div className="card-actions justify-start">
           {project.category.map((category: any, index: number) => (
-            <div key={index} className="badge badge-secondary">
+            <div key={index} className="badge badge-accent">
               {category}
             </div>
           ))}
         </div>
-        <button onClick={() => router.push(`/${project.id}`)} className="mt-1 btn btn-primary">See the Blog Post</button>
+        <button onClick={() => router.push(`/${project.id}`)} className="mt-1 btn btn-neutral">See the Blog Post</button>
       </div>
     </div>
   )

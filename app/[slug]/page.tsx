@@ -10,27 +10,16 @@ type Props = { params: Promise<{ slug: string }> }
 
 export default function DetailProject({ params }: Props) {
   return (
-    <div className="relative w-full min-h-screen bg-white px-4 sm:px-8 py-10">
-      <div
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #f1e5daff 1px, transparent 1px),
-            linear-gradient(to bottom, #f1e5daff 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
+    <div className="relative w-full min-h-screen bg-base-300 px-4 sm:px-8 py-10">
       <div className="relative z-10 lg:w-3/5 md:w-full mx-auto">
         <Link
           href="/"
-          className="btn btn-primary rounded-3xl mb-3"
+          className="btn btn-neutral text-neutral-content rounded-3xl mb-3"
         >
           <BackIcon className="w-5 h-5" /> Back to Home
         </Link>
 
-        <div className="bg-base-100 p-12">
+        <div className="bg-base-100 p-12 text-base-content">
           <Suspense fallback={<ProjectHeaderSkeleton />}>
             <BlogHeader params={params} />
           </Suspense>

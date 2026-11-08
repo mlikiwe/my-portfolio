@@ -36,19 +36,7 @@ async function ExperienceList() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-white relative">
-      <div className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #f5f2ef 1px, transparent 1px),
-            linear-gradient(to bottom, #f5f2ef 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-          WebkitMaskImage: "linear-gradient(to right, #000 0%, #000 30%, transparent 45%, transparent 100%)",
-          maskImage: "linear-gradient(to right, #000 0%, #000 30%, transparent 45%, transparent 100%)",
-        }}
-      />
-
+    <div className="min-h-screen w-full bg-base-200 relative">
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-16 top-8 px-4 items-start">
         <Suspense fallback={<ProfileSectionSkeleton />}>
           <ProfileSection />

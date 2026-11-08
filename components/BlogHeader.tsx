@@ -8,12 +8,12 @@ export async function BlogHeader({ params }: Props) {
     const { title, date, techStack } = await fetchProject(slug)
 
     return (
-        <div className="mb-4 pb-4 border-b border-[#f1e5da]">
-            <h1 className="text-3xl font-semibold text-black font-sans">{title}</h1>
+        <div className="mb-4 pb-4 border-b">
+            <h1 className="text-3xl font-semibold font-sans">{title}</h1>
             {date && (
                 <div className="flex flex-row mt-1">
-                    <ClockIcon className="w-3 h-3 self-center mr-1 text-black/50"/>
-                    <p className="text-sm text-black/50">
+                    <ClockIcon className="w-3 h-3 self-center mr-1 text-base-content/60" />
+                    <p className="text-sm text-base-content/60">
                         Published on {new Date(date).toLocaleDateString("en-UK", { day: "numeric", month: "long", year: "numeric" })}
                     </p>
                 </div>
