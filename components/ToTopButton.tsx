@@ -42,7 +42,7 @@ export function ToTopButton(): React.JSX.Element {
     return (
         <button
             onClick={clickHandler}
-            className={`btn fixed bottom-5 left-1/2 z-50 inline-flex items-center gap-1.5 cursor-pointer rounded-3xl bg-[#688E8F] text-white border-none hover:bg-[#023E3B] transition-all duration-500 ease-in-out transform -translate-x-1/2 ${visible
+            className={`btn btn-primary fixed bottom-5 left-1/2 z-50 rounded-3xl transition-all duration-500 ease-in-out transform -translate-x-1/2 ${visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-12 opacity-0 pointer-events-none"
                 }`}

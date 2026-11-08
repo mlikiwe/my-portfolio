@@ -27,7 +27,7 @@ export async function BlogLinks({ params }: Props) {
     if (links.length === 0) return null
 
     return (
-        <div className="flex flex-wrap gap-3 mt-8 border-l-2 border-gray-300 px-4">
+        <div className="flex flex-wrap gap-3 mt-8 border-l-2 border-base-300 px-4">
             <span className="self-center text-[15px]">Explore more:</span>
             {links.map((link) => {
                 const config = LINK_CONFIG[link.type]
@@ -38,7 +38,7 @@ export async function BlogLinks({ params }: Props) {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-3xl border border-[#688E8F]/30 px-4 py-1.5 text-sm text-[#688E8F] transition-colors hover:border-[#688E8F] hover:bg-[#688E8F] hover:text-white"
+                        className="btn btn-outline btn-primary rounded-3xl"
                     >
                         {config.icon}
                         {config.label}

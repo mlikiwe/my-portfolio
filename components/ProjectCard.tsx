@@ -6,7 +6,7 @@ export function ProjectCard(project: { id: string, title: string, description: s
   const router = useRouter()
 
   return (
-    <div key={project.id} className="card bg-white shadow-sm shadow-[#f1e5da]">
+    <div key={project.id} className="card bg-base-100 shadow-sm">
       <figure className="h-48 overflow-hidden">
         {project.cover && <img
           src={project.cover}
@@ -20,12 +20,12 @@ export function ProjectCard(project: { id: string, title: string, description: s
         <p>{project.description}</p>
         <div className="card-actions justify-start">
           {project.category.map((category: any, index: number) => (
-            <div key={index} className={`badge bg-[#f1e5da] text-[#688E8F] border-none`}>
+            <div key={index} className="badge badge-secondary">
               {category}
             </div>
           ))}
         </div>
-        <button onClick={() => router.push(`/${project.id}`)} className="mt-1 btn bg-[#688E8F] text-white border-none hover:bg-[#023E3B]">See the Blog Post</button>
+        <button onClick={() => router.push(`/${project.id}`)} className="mt-1 btn btn-primary">See the Blog Post</button>
       </div>
     </div>
   )
@@ -35,7 +35,7 @@ export function ProjectCardSkeleton({ project_length }: { project_length: number
   return (
     <div className="grid grid-cols-2 gap-4">
       {Array.from({ length: project_length }).map((_, i) => (
-        <div key={i} className="card bg-white shadow-sm shadow-[#f1e5da]">
+        <div key={i} className="card bg-base-100">
           <figure className="h-48 overflow-hidden">
             <div className="skeleton w-full h-full" />
           </figure>

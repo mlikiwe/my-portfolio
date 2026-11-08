@@ -9,10 +9,10 @@ function formatDateRange(startDateStr?: string, endDateStr?: string): string {
 export async function ExperienceCard(experience: {id: string, role: string, company: string, start_date: string, end_date: string | null}) {
   return (
     <div className="flex flex-col">
-        <div key={experience.id} className="py-3 bg-white rounded-xl text-black">
+        <div key={experience.id} className="py-3 bg-base rounded-xl text-base-content">
           <div className="text-bold">{experience.role}</div>
-          <div className="text-[15px] text-neutral-700">{experience.company}</div>
-          <div className="text-sm text-black/60">{formatDateRange(experience.start_date, experience.end_date ?? "Present")}</div>
+          <div className="text-[15px] text-base-content/70">{experience.company}</div>
+          <div className="text-sm text-base-content/60">{formatDateRange(experience.start_date, experience.end_date ?? "Present")}</div>
         </div>
     </div>
   );

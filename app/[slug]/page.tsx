@@ -25,12 +25,12 @@ export default function DetailProject({ params }: Props) {
       <div className="relative z-10 lg:w-3/5 md:w-full mx-auto">
         <Link
           href="/"
-          className="inline-flex py-2.5 px-4 mb-3 items-center gap-1.5 rounded-3xl text-sm border bg-[#688E8F] text-white border-none hover:bg-[#023E3B]"
+          className="btn btn-primary rounded-3xl mb-3"
         >
           <BackIcon className="w-5 h-5" /> Back to Home
         </Link>
 
-        <div className="bg-white p-12">
+        <div className="bg-base-100 p-12">
           <Suspense fallback={<ProjectHeaderSkeleton />}>
             <BlogHeader params={params} />
           </Suspense>
@@ -54,7 +54,7 @@ export default function DetailProject({ params }: Props) {
 
 function ProjectHeaderSkeleton() {
   return (
-    <div className="mb-6 flex flex-col gap-2 pb-6 border-b border-[#f1e5da]">
+    <div className="mb-6 flex flex-col gap-2 pb-6 border-b border-base-300">
       <div className="skeleton h-7 w-2/3 rounded" />
       <div className="skeleton h-4 w-24 rounded" />
       <div className="flex gap-2 mt-1">
@@ -68,7 +68,7 @@ function ProjectHeaderSkeleton() {
 
 function ProjectLinksSkeleton() {
   return (
-    <div className="flex gap-2 mb-8 pb-8 border-b border-[#f1e5da]">
+    <div className="flex gap-2 mb-8 pb-8 border-b border-base-300">
       <div className="skeleton h-8 w-24 rounded-full" />
       <div className="skeleton h-8 w-24 rounded-full" />
     </div>

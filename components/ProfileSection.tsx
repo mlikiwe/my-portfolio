@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { fetchProfile } from "@/lib/notion";
@@ -19,7 +18,7 @@ export async function ProfileSection() {
             <h2 className="font-mono font-bold text-xl">Profile</h2>
 
             <div className="avatar self-start">
-                <div className="ring-[#688E8F] ring-offset-base-100 w-25 rounded-full ring-3 ring-offset-2">
+                <div className="ring-primary ring-offset-base-100 w-25 rounded-full ring-3 ring-offset-2">
                     {profile.cover && <img src={profile.cover} alt={profile.name} />}
                 </div>
             </div>
@@ -27,7 +26,7 @@ export async function ProfileSection() {
             <div className="text-left">
                 <h1 className="text-lg">{profile.name}</h1>
                 <h2 className="mt-1">{profile.role}</h2>
-                <h2 className="text-sm text-black/60">{profile.region}</h2>
+                <h2 className="text-sm text-base-content/60">{profile.region}</h2>
             </div>
 
             <div className="text-left">
@@ -39,7 +38,7 @@ export async function ProfileSection() {
                 <h1 className="font-mono mb-1">Skill</h1>
                 <div className="flex flex-wrap justify-start gap-2 mt-2">
                     {profile.skills.map((skill, index) => (
-                        <span key={index} className="badge bg-[#f1e5da] text-[#688E8F] border-none">
+                        <span key={index} className="badge badge-secondary">
                             {skill}
                         </span>
                     ))}
@@ -47,10 +46,10 @@ export async function ProfileSection() {
             </div>
 
             <div className="flex flex-row gap-4 mt-3">
-                <a target="_blank" href="https://github.com/mlikiwe" className="text-[#688E8F] hover:text-[#023E3B] transition-colors">
+                <a target="_blank" href="https://github.com/mlikiwe" className="text-primary hover:text-secondary transition-colors tooltip tooltip-bottom" data-tip="Github">
                     <GithubIcon className="w-9 h-9" />
                 </a>
-                <a target="_blank" href="https://www.linkedin.com/in/ivanadinata/" className="text-[#688E8F] hover:text-[#023E3B] transition-colors">
+                <a target="_blank" href="https://www.linkedin.com/in/ivanadinata/" className="text-primary hover:text-secondary transition-colors tooltip tooltip-bottom" data-tip="Linkedin">
                     <LinkedinIcon className="w-9 h-9" />
                 </a>
             </div>
