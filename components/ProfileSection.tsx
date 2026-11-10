@@ -1,6 +1,7 @@
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { fetchProfile } from "@/lib/notion";
+import { DownloadIcon } from "./icons/DownloadIcon";
 
 export async function ProfileSection() {
     const profile = await fetchProfile();
@@ -52,6 +53,14 @@ export async function ProfileSection() {
                 <a target="_blank" href="https://www.linkedin.com/in/ivanadinata/" className="text-secondary tooltip tooltip-bottom" data-tip="Linkedin">
                     <LinkedinIcon className="w-9 h-9" />
                 </a>
+                {profile.cv && (
+                    <a
+                        href="/api/cv"
+                        className="text-secondary tooltip tooltip-bottom" data-tip="Download Resume"
+                    >
+                        <DownloadIcon className="w-9 h-9" />
+                    </a>
+                )}
             </div>
         </section>
     );

@@ -34,6 +34,7 @@ export type Profile = {
   about: string
   skills: string[]
   cover: string
+  cv: { url: string; filename: string } | null
 }
 
 const notionSecret = process.env.NOTION_SECRET
@@ -108,6 +109,15 @@ function mapExperience(page: any): Experience {
 
 function mapProfile(page: any): Profile {
   const p = page.properties
+
+  const cvFile = p.cv?.files?.[0]
+  const cv = cvFile
+    ? {
+      url: cvFile.file?.url ?? cvFile.external?.url ?? "",
+      filename: cvFile.name ?? "CV.pdf",
+    }
+    : null
+
   return {
     id: page.id,
     name: p.Name?.title?.[0]?.plain_text ?? "",
@@ -118,6 +128,7 @@ function mapProfile(page: any): Profile {
     cover:
       p.cover?.files?.[0]?.file?.url ??
       "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+    cv,
   }
 }
 
