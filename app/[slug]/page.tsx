@@ -1,10 +1,16 @@
 import { Suspense } from "react"
-import { BlogHeader } from "@/components/BlogHeader"
-import { BlogLinks } from "@/components/BlogLinks"
+import { BlogHeader, BlogHeaderSkeleton } from "@/components/BlogHeader"
+import { BlogLinks, BlogLinksSkeleton } from "@/components/BlogLinks"
 import { BlogContent } from "@/components/BlogContent"
 import { ToTopButton } from "@/components/ToTopButton"
 import Link from "next/link"
 import { BackIcon } from "@/components/icons/BackIcon"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog Post",
+  description: "Blog Post for selected project",
+};
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -20,7 +26,7 @@ export default function DetailProject({ params }: Props) {
         </Link>
 
         <div className="bg-base-100 p-12 text-base-content">
-          <Suspense fallback={<ProjectHeaderSkeleton />}>
+          <Suspense fallback={<BlogHeaderSkeleton />}>
             <BlogHeader params={params} />
           </Suspense>
 
@@ -30,36 +36,13 @@ export default function DetailProject({ params }: Props) {
             </Suspense>
           </div>
 
-          <Suspense fallback={<ProjectLinksSkeleton />}>
+          <Suspense fallback={<BlogLinksSkeleton />}>
             <BlogLinks params={params} />
           </Suspense>
 
           <ToTopButton />
         </div>
       </div>
-    </div>
-  )
-}
-
-function ProjectHeaderSkeleton() {
-  return (
-    <div className="mb-6 flex flex-col gap-2 pb-6 border-b border-base-300">
-      <div className="skeleton h-7 w-2/3 rounded" />
-      <div className="skeleton h-4 w-24 rounded" />
-      <div className="flex gap-2 mt-1">
-        {[64, 80, 72].map((w) => (
-          <div key={w} className="skeleton h-6 rounded-full" style={{ width: w }} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function ProjectLinksSkeleton() {
-  return (
-    <div className="flex gap-2 mb-8 pb-8 border-b border-base-300">
-      <div className="skeleton h-8 w-24 rounded-full" />
-      <div className="skeleton h-8 w-24 rounded-full" />
     </div>
   )
 }

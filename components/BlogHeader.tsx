@@ -30,3 +30,17 @@ export async function BlogHeader({ params }: Props) {
         </div>
     )
 }
+
+export function BlogHeaderSkeleton() {
+  return (
+    <div className="mb-6 flex flex-col gap-2 pb-6 border-b border-base-300">
+      <div className="skeleton h-7 w-2/3 rounded" />
+      <div className="skeleton h-4 w-24 rounded" />
+      <div className="flex gap-2 mt-1">
+        {[64, 80, 72].map((w) => (
+          <div key={w} className="skeleton h-6 rounded-full" style={{ width: w }} />
+        ))}
+      </div>
+    </div>
+  )
+}

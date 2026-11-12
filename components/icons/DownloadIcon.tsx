@@ -1,4 +1,3 @@
-// components/icons/DownloadIcon.tsx
 export function DownloadIcon({ className }: { className?: string }) {
     return (
         <svg

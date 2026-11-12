@@ -7,8 +7,8 @@ import { ExperienceCard, ExperienceListSkeleton } from "@/components/ExperienceC
 import { ProjectCard, ProjectCardSkeleton } from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
-  title: "Ivan's Project",
-  description: "Showcase of ivan's project",
+  title: "Ivan's Portfolio",
+  description: "Showcase of ivan's portfolio and experiences",
 };
 
 async function ProjectGrid() {

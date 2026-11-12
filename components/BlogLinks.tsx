@@ -48,3 +48,13 @@ export async function BlogLinks({ params }: Props) {
         </div>
     )
 }
+
+
+export function BlogLinksSkeleton() {
+  return (
+    <div className="flex gap-2 mb-8 pb-8 border-b border-base-300">
+      <div className="skeleton h-8 w-24 rounded-full" />
+      <div className="skeleton h-8 w-24 rounded-full" />
+    </div>
+  )
+}
